@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        .console-output {
+            background-color: #1e1e1e;
+            color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 20px 0;
+            font-family: monospace;
+            white-space: pre-line;
+        }
+        h1 {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>User Management System - Console Output</h1>
+    <div class="console-output" id="output">
+        // Результаты работы кода будут отображены здесь
+    </div>
+
+    <script src="./erz.js"></script>
+    <script>
+        // Перехватываем console.log для отображения в div
+        const outputDiv = document.getElementById('output');
+        const originalConsoleLog = console.log;
+        
+        console.log = function(message) {
+            originalConsoleLog.apply(console, arguments);
+            outputDiv.textContent += message + '\n';
+        };
+    </script>
+</body>
+</html> 

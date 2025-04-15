@@ -1,0 +1,124 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <style>
+        body { font-family: Arial, Helvetica, sans-serif;}
+        .task-list {list-style: none; padding: 0;}
+        .task-item {display: flex; justify-content: space-between; padding: 5px; border-bottom: 1px solid #ddd;}
+        .completed { text-decoration: line-through; color: gray;}
+        .edit-bit, .delete-btn { cursor: pointer;margin-left: 5px;}
+    </style>
+</head>
+<body>
+    <h2>To-Do List</h2>
+    <input type="text" id="taskInput" placeholder="Введите задачу">
+ <button id="addTask">Добавить</button>
+ <ul id="taskList" class="task-list"></ul>
+ <script src="script.js"></script>
+</body>
+</html> -->
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>список задач</h1>
+    <ul id="taskList"></ul>
+    <script src="./script.js"></script>
+</body>
+</html> -->
+<!-- СРС -->
+
+<!-- лаб 8 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="characters-container">
+
+    </div>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+</body>
+</html> 
+
+
+<!-- <-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Dog Images</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f2f5;
+        }
+        .container {
+            text-align: center;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 20px 0;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #dogImage {
+            max-width: 500px;
+            max-height: 500px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Random Dog Images</h1>
+        <button onclick="getRandomDog()">Show me a dog!</button>
+        <img id="dogImage" alt="Random dog">
+    </div>
+
+    <script>
+        function getRandomDog() {
+            const dogImage = document.getElementById('dogImage');
+            dogImage.style.display = 'none';
+            
+            fetch('https://dog.ceo/api/breeds/image/random')
+                .then(response => response.json())
+                .then(data => {
+                    dogImage.src = data.message;
+                    dogImage.style.display = 'block';
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Failed to load dog image. Please try again.');
+                });
+        }
+    </script>
+</body>
+</html>  -->

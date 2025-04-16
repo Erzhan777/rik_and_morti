@@ -45,6 +45,17 @@
 </head>
 <body>
     <div id="characters-container">
+        
+    </div>
+
+    <div style="margin-top: 20px;">
+        <button id="prev-btn">Назад</button>
+        <span id="page-counter">Страница: 1 из 42</span>
+        <button id="next-btn">Вперёд</button>
+      </div>
+      
+    
+    <div id="characters-container">
 
     </div>
     <script src="script.js"></script>
@@ -122,3 +133,106 @@
     </script>
 </body>
 </html>  -->
+
+<!-- <!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Рик и Морти</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .character-card {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin: 10px;
+      width: 180px;
+      display: inline-block;
+      vertical-align: top;
+    }
+
+    .character-card img {
+      width: 100%;
+    }
+
+    #pagination {
+      margin-top: 20px;
+    }
+
+    .page-btn {
+      margin: 2px;
+      padding: 5px 10px;
+      border: 1px solid #aaa;
+      background-color: #f0f0f0;
+      cursor: pointer;
+    }
+
+    .page-btn.active {
+      background-color: #ddd;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h2>Персонажи Рика и Морти</h2>
+  <div id="characters-container"></div>
+  <div id="pagination"></div>
+
+  <script>
+    const container = document.getElementById("characters-container");
+    const pagination = document.getElementById("pagination");
+    const maxPage = 42;
+    let currentPage = 1;
+
+    function loadCharacters(page) {
+      fetch(`https://rickandmortyapi.com/api/character?page=${page}`)
+        .then((res) => res.json())
+        .then((data) => {
+          container.innerHTML = "";
+          data.results.forEach((character) => {
+            const card = document.createElement("div");
+            card.classList.add("character-card");
+            card.innerHTML = `
+              <h4>${character.name}</h4>
+              <img src="${character.image}" alt="${character.name}">
+              <p>Статус: ${character.status}</p>
+              <p>Вид: ${character.species}</p>
+            `;
+            container.appendChild(card);
+          });
+        });
+    }
+
+    function createPagination() {
+      for (let i = 1; i <= maxPage; i++) {
+        const btn = document.createElement("button");
+        btn.textContent = i;
+        btn.classList.add("page-btn");
+        if (i === currentPage) btn.classList.add("active");
+        btn.addEventListener("click", () => {
+          currentPage = i;
+          loadCharacters(currentPage);
+          updatePagination();
+        });
+        pagination.appendChild(btn);
+      }
+    }
+
+    function updatePagination() {
+      const buttons = document.querySelectorAll(".page-btn");
+      buttons.forEach((btn, index) => {
+        btn.classList.toggle("active", index + 1 === currentPage);
+      });
+    }
+
+    // Начальная загрузка
+    loadCharacters(currentPage);
+    createPagination();
+    
+  </script>
+</body>
+</html> -->

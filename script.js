@@ -56,24 +56,48 @@
 
 // лаб 8
 const container = document.getElementById('characters-container');
+const pageCounter = document.getElementById('page-counter');
+let currentPage = 1;
+const totalPages = 42;
+function updatePageCounter() {
+  pageCounter.textContent = `Страница: ${currentPage} из ${totalPages}`;
+}
+function loadCharacters(page) {
+  container.innerHTML = ''; 
+  fetch(`https://rickandmortyapi.com/api/character?page=${page}`)
+    .then(res => res.json())
+    .then(data => {
+      data.results.forEach(character => {
+        const card = document.createElement('div');
+        card.classList.add('character-card');
+        card.innerHTML = `
+          <h3>${character.name}</h3>
+          <img src="${character.image}" alt="${character.name}" />
+          <p>Status: ${character.status}</p>
+          <p>Species: ${character.species}</p>
+        `;
+        container.appendChild(card);
+      });
 
-fetch('https://rickandmortyapi.com/api/character')
-  .then(res => res.json())
-  .then(data => {
-    data.results.forEach(character => {
-      const card = document.createElement('div');
-      card.classList.add('character-card');
-
-      card.innerHTML = `
-        <h3>${character.name}</h3>
-        <img src="${character.image}" alt="${character.name}" />
-        <p>Status: ${character.status}</p>
-        <p>Species: ${character.species}</p>
-      `;
-
-      container.appendChild(card);
+      updatePageCounter();
     });
-  });
+}
+document.getElementById('prev-btn').addEventListener('click', () => {
+  if (currentPage > 1) {
+    currentPage--;
+    loadCharacters(currentPage);
+  }
+});
+document.getElementById('next-btn').addEventListener('click', () => {
+  if (currentPage < totalPages) {
+    currentPage++;
+    loadCharacters(currentPage);
+  }
+});
+loadCharacters(currentPage);
+
+
+  
 
 //  function getRandomDog() {
 //      const dogImage = document.getElementById('dogImage');
